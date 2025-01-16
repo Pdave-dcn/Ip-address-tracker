@@ -3,16 +3,16 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 // Fix marker icons
-import markerIcon from "leaflet/dist/images/marker-icon.png";
+//import markerIcon from "leaflet/dist/images/marker-icon.png"; Default icon
 import markerIconRetina from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 // Define the default marker icon configuration
 const DefaultIcon = L.icon({
-  iconUrl: markerIcon, // Path to the default marker icon
+  iconUrl: "images/icon-location.svg",
   iconRetinaUrl: markerIconRetina, // Path to the high-resolution marker icon
   shadowUrl: markerShadow, // Path to the marker shadow
-  iconSize: [25, 41], // Size of the icon [width, height]
+  iconSize: [30, 41], // Size of the icon [width, height]
   iconAnchor: [12, 41], // Anchor point for the icon (where it attaches to the map)
 });
 

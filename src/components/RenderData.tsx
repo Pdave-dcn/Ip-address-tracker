@@ -63,21 +63,23 @@ const RenderData = ({ ipAddress, setIpCoordinates }: RenderDataType) => {
           LOCATION
         </p>
         <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">
-          {location}
+          {location ? location : "N/A"}
         </p>
       </div>
       <div className="mb-5">
         <p className="text-xs font-semibold text-darkGray sm:text-base sm:font-medium">
           TIMEZONE
         </p>
-        <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">{`UTC ${timezone}`}</p>
+        <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">{`UTC ${
+          timezone ? timezone : "N/A"
+        }`}</p>
       </div>
       <div className="mb-5">
         <p className="text-xs font-semibold text-darkGray sm:text-base sm:font-medium">
           ISP
         </p>
         <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">
-          {isp}
+          {isp ? isp : "N/A"}
         </p>
       </div>
     </div>
