@@ -49,22 +49,36 @@ const RenderData = ({ ipAddress, setIpCoordinates }: RenderDataType) => {
     }
   }, [coordinates, setIpCoordinates]);
   return (
-    <div className="bg-white flex flex-col items-center w-64 p-2 text-center">
+    <div className="bg-white flex flex-col items-center w-64 p-2 text-center sm:w-72 lg:flex-row lg:items-center lg:w-auto lg:gap-20 lg:text-left lg:text-nowrap lg:p-0">
       <div className="mb-5">
-        <p className="text-xs font-semibold text-darkGray">IP ADDRESS</p>
-        <p className="text-veryDarkGray text-xl font-semibold">{ipAddress}</p>
+        <p className="text-xs font-semibold text-darkGray sm:text-base sm:font-medium">
+          IP ADDRESS
+        </p>
+        <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">
+          {ipAddress}
+        </p>
       </div>
       <div className="mb-5">
-        <p className="text-xs font-semibold text-darkGray">LOCATION</p>
-        <p className="text-veryDarkGray text-xl font-semibold">{location}</p>
+        <p className="text-xs font-semibold text-darkGray sm:text-base sm:font-medium">
+          LOCATION
+        </p>
+        <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">
+          {location}
+        </p>
       </div>
       <div className="mb-5">
-        <p className="text-xs font-semibold text-darkGray">TIMEZONE</p>
-        <p className="text-veryDarkGray text-xl font-semibold">{`UTC ${timezone}`}</p>
+        <p className="text-xs font-semibold text-darkGray sm:text-base sm:font-medium">
+          TIMEZONE
+        </p>
+        <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">{`UTC ${timezone}`}</p>
       </div>
       <div className="mb-5">
-        <p className="text-xs font-semibold text-darkGray">ISP</p>
-        <p className="text-veryDarkGray text-xl font-semibold">{isp}</p>
+        <p className="text-xs font-semibold text-darkGray sm:text-base sm:font-medium">
+          ISP
+        </p>
+        <p className="text-veryDarkGray text-xl font-semibold sm:text-2xl">
+          {isp}
+        </p>
       </div>
     </div>
   );

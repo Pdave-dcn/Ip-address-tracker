@@ -35,7 +35,7 @@ function App() {
             />
           </div>
           {ipAddress && (
-            <div className="absolute top-52 left-1/2 transform -translate-x-1/2 z-[100] bg-white p-4 rounded-lg shadow-lg //w-full">
+            <div className="absolute top-52 left-1/2 transform -translate-x-1/2 z-[100] bg-white p-4 rounded-lg shadow-lg sm:top-32 lg:top-36 xl:top-52">
               <RenderData
                 ipAddress={ipAddress}
                 setIpCoordinates={setIpCoordinates}

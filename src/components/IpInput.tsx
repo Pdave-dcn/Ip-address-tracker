@@ -40,7 +40,7 @@ const IpInput = ({
           placeholder="Enter an IP address"
           value={tempIpAddress}
           onChange={(e) => setTempIpAddress(e.target.value)}
-          className="w-64 h-8 outline-none p-6 rounded-l-xl text-gray-800"
+          className="w-64 h-8 outline-none p-6 rounded-l-xl text-gray-800 sm:w-72 xl:w-96"
         />
         <button
           type="submit"
