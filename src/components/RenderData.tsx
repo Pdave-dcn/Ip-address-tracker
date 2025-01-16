@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 const useDataFetching = (ipAddress: string) => {
-  const [location, setLocation] = useState(null);
-  const [timezone, setTimezone] = useState(null);
-  const [isp, setIsp] = useState(null);
+  const [location, setLocation] = useState<string | null>(null);
+  const [timezone, setTimezone] = useState<string | null>(null);
+  const [isp, setIsp] = useState<string | null>(null);
   const [coordinates, setCoordinates] = useState<[number, number]>([
     51.505, -0.09,
   ]);
@@ -16,16 +16,19 @@ const useDataFetching = (ipAddress: string) => {
         );
 
         if (response.status >= 400) {
-          throw new Error("Server error");
+          throw new Error("Invalid IP Address or Server Error");
         }
 
         const json = await response.json();
-        setLocation(json.location.region);
-        setTimezone(json.location.timezone);
-        setIsp(json.isp);
+        setLocation(json.location.region || null);
+        setTimezone(json.location.timezone || null);
+        setIsp(json.isp || null);
         setCoordinates([json.location.lat, json.location.lng]);
       } catch (error) {
         console.error("Error fetching data", error);
+        setLocation(null);
+        setTimezone(null);
+        setIsp(null);
       }
     };
 
