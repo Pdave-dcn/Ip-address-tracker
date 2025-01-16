@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -19,34 +19,37 @@ const DefaultIcon = L.icon({
 // Apply the default icon to all markers
 L.Marker.prototype.options.icon = DefaultIcon;
 
+// Component to update the map view
+const ChangeView = ({ center }: { center: [number, number] }) => {
+  const map = useMap();
+  map.setView(center, map.getZoom());
+  return null;
+};
+
 // Main map component
-const MapComponent = () => {
+const MapComponent = ({
+  ipCoordinates,
+}: {
+  ipCoordinates: [number, number];
+}) => {
   return (
     <MapContainer
-      // Set the default center of the map (latitude, longitude)
-      // Modify these coordinates to change the starting location
-      center={[51.505, -0.09]} // Example: London coordinates
-      zoom={13} // Adjust zoom level (higher = more zoomed in)
-      style={{ height: "100vh", width: "100%" }} // Adjust the map's height and width
+      center={ipCoordinates} // Default center
+      zoom={13} // Default zoom level
+      style={{ height: "100vh", width: "100%" }}
     >
       {/* Add the map tiles */}
       <TileLayer
-        // OpenStreetMap tile URL
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        // Attribution to the map data provider (modify or remove if using a custom tile provider)
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
+      {/* Automatically update the view when ipCoordinates change */}
+      <ChangeView center={ipCoordinates} />
+
       {/* Add a marker to the map */}
-      <Marker
-        position={[51.505, -0.09]} // Marker position [latitude, longitude]
-        // Modify these coordinates to place the marker at a specific location
-      >
-        {/* Popup that appears when clicking on the marker */}
-        <Popup>
-          A default marker popup!{" "}
-          {/* Customize this text to display specific information */}
-        </Popup>
+      <Marker position={ipCoordinates}>
+        <Popup>A default marker popup!</Popup>
       </Marker>
     </MapContainer>
   );
