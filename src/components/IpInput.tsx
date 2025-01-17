@@ -40,12 +40,12 @@ const IpInput = ({
           placeholder="Search for any IP address or domain"
           value={tempIpAddress}
           onChange={(e) => setTempIpAddress(e.target.value)}
-          className="w-64 h-8 outline-none p-6 rounded-l-xl text-gray-800 sm:w-72 xl:w-96"
+          className="w-64 h-8 outline-none p-6 rounded-l-xl text-veryDarkGray cursor-pointer sm:w-72 xl:w-96"
         />
         <button
           type="submit"
           aria-label="Submit button"
-          className="p-6 h-8 bg-veryDarkGray flex rounded-r-xl"
+          className="p-6 h-8 bg-veryDarkGray flex rounded-r-xl lg:hover:bg-[#4d4d4d]"
         >
           <img
             src="images/icon-arrow.svg"

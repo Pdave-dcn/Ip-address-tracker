@@ -34,8 +34,8 @@ const MapComponent = ({
 }) => {
   return (
     <MapContainer
-      center={ipCoordinates} // Default center
-      zoom={13} // Default zoom level
+      center={ipCoordinates}
+      zoom={15} // Default zoom level
       style={{ height: "100vh", width: "100%" }}
     >
       {/* Add the map tiles */}

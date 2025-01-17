@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IpInput from "./components/IpInput";
 import MapComponent from "./components/MapComponent";
 import RenderData from "./components/RenderData";
@@ -10,6 +10,28 @@ function App() {
     51.505, -0.09,
   ]);
 
+  // Fetch user's IP address location on initial load
+  useEffect(() => {
+    const fetchUserIpLocation = async () => {
+      try {
+        const response = await fetch(
+          `https://geo.ipify.org/api/v2/country,city?apiKey=at_somyEdSGFlPOBua9ddWEndDB0ZEaC`
+        );
+
+        if (response.status >= 400) {
+          throw new Error("Failed to fetch user's IP location.");
+        }
+
+        const json = await response.json();
+        setIpCoordinates([json.location.lat, json.location.lng]);
+      } catch (error) {
+        console.error("Error fetching user's IP location:", error);
+      }
+    };
+
+    fetchUserIpLocation();
+  }, []);
+
   return (
     <>
       <div className="font-rubik">
@@ -20,7 +42,6 @@ function App() {
               alt="Background image"
               className="bg-cover w-full sm:hidden"
             />
-
             <img
               src="images/pattern-bg-desktop.png"
               alt="Background image"
