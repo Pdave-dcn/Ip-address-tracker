@@ -64,7 +64,7 @@ function App() {
             </div>
           )}
         </div>
-        <div className="relative -z-10">
+        <div className="relative z-0">
           <MapComponent ipCoordinates={ipCoordinates} />
         </div>
       </div>
