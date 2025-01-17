@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# IP Address Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web application that allows users to track IP addresses and view their geographical locations on a map. Built with React, TypeScript, and Leaflet for mapping functionality.
 
-Currently, two official plugins are available:
+![Design preview for the IP address tracker coding challenge](design/desktop-preview.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Search for any IP address
+- Display geographical information including:
+  - IP Address
+  - Location
+  - Timezone
+  - ISP
+- Interactive map showing the location
+- Responsive design for mobile and desktop
+- Automatic detection of user's IP address on initial load
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- TypeScript
+- Tailwind CSS
+- Leaflet Maps
+- IP Geolocation API by ipify
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Usage
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Enter any valid IPv4 address in the search bar
+- Press enter or click the arrow button to search
+- View the location details and map marker for the searched IP address
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Acknowledgments
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- IP Geolocation by [ipify](https://www.ipify.org/)
+- Maps by [OpenStreetMap](https://www.openstreetmap.org/)
+- React Leaflet for map integration
